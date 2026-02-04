@@ -1,5 +1,9 @@
 # Extract similarity measures between pairs of documents
+import os
 import re
+import pandas as pd
+from tqdm import tqdm
+# from .preprocessing import load_document
 from pathlib import Path
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -136,50 +140,84 @@ class FeatureExtractor:
         features["dice_sim"] = self.dice_sim(doc1, doc2, input_is_path=True)
         return features
 
-    def extract_features_from_pairs(pairs_df, doc_dir, preprocessor=True):
-        """
-            Extrait toutes les features pour toutes les paires de documents
-            pairs_df : DataFrame avec les colonnes [doc_orig, doc_susp, label]
-            data_dir : Répertoire contenant les documents
+def extract_features_from_pairs(pairs_df, doc_dir, preprocessor=True):
+    """
+        Extrait toutes les features pour toutes les paires de documents
+        pairs_df : DataFrame avec les colonnes [doc_orig, doc_susp, label]
+        data_dir : Répertoire contenant les documents
 
-            retourne
-            (X,y, feature_names) avac X la matrice de features
+        retourne
+        (X,y, feature_names) avac X la matrice de features
 
-            {
-                'mesure1' : [val_pair1, val_pair2, ....]
-                'mesure2' : [val_pair1, val_pair2, ....],
-                ...,
-                'label' : ['heavy',...]
-            }
+        {
+            'mesure1' : [val_pair1, val_pair2, ....]
+            'mesure2' : [val_pair1, val_pair2, ....],
+            ...,
+            'label' : ['heavy',...]
+        }
 
 
-            FLOW
-                Charger le doc original et suspect pour chaque oair
-                Pretaitement(opt)
-                
-                Extraire les features
-                Ajouter a X les valeurs de les features
-                Ajouter  a y la valueur de la colonne label pour étiqueter
+        FLOW
+            Charger le doc original et suspect pour chaque oair
+            Pretaitement(opt)
+            
+            Extraire les features
+            Ajouter a X les valeurs de les features
+            Ajouter  a y la valueur de la colonne label pour étiqueter
 
-                REturn np.array(X), np.array(y), feature_names
-        """
-        pass
+            REturn np.array(X), np.array(y), feature_names    
+    """
+    feature_extractor = FeatureExtractor()
+    X = []
+    y = []
+    feature_names = None
+    
+    # print(f"Extraction des features pour {len(pairs_df)} paires...")
+    
+    for idx, row in tqdm(pairs_df.iterrows(), total=len(pairs_df)):
+        # Charger les documents
+        doc1_path = os.path.join(data_dir, row['doc_source'])
+        doc2_path = os.path.join(data_dir, row['doc_suspect'])
+        
+        doc1 = feature_extractor.load_document(doc1_path,True)
+        doc2 = feature_extractor.load_document(doc2_path,True)
+        
+        # Prétraitement optionnel
+        if preprocessor:
+            doc1 = preprocessor.preprocess(doc1)
+            doc2 = preprocessor.preprocess(doc2)
+        
+        # Extraction features
+        features = feature_extractor.extract_all_features(doc1, doc2)
+        
+        if feature_names is None:
+            feature_names = list(features.keys())
+        
+        X.append(list(features.values()))
+        y.append(row['label'])
+    
+    return np.array(X), np.array(y), feature_names
+       
 
-        """
-         Pour le main, il faut bien définir le base_dir, le data_dir et les chemins relatifs des documents 
-         par rapport au data_dir avant de pouvoir lancer le main. 
-        """
+if __name__ == "__main__":
+    base_dir = Path(__file__).resolve().parents[2]
+    data_dir = base_dir / "data-plagiarism"
+    
+    # extractor = FeatureExtractor()
+    # doc1 = data_dir / "g0pC_taskd.txt"
+    # doc2 = data_dir / "orig_taskd.txt"
+    # pairs_df = data_dir / "labels.csv"
+    # df = pd.read_csv(pairs_df)
 
-# if __name__ == "__main__":
-#     # base_dir = Path(__file__).resolve().parents[2]
-#     # data_dir = base_dir / "data-plagiarism"
+    # features = extractor.extract_all_features(str(doc1), str(doc2))
+    # print("Features extraites : ")
+    # for name, value in features.items():
+    #     print(f"{name} : {value:.4f}")
 
-#     # extractor = FeatureExtractor(language="french")
-#     # doc1 = data_dir / "g0pC_taskd.txt"
-#     # doc2 = data_dir / "orig_taskd.txt"
 
-#     # features = extractor.extract_all_features(str(doc1), str(doc2))
+    # pairs_df = pd.read_csv('data/labels.csv')
+    
 
-#     # print("Features extraites : ")
-#     # for name, value in features.items():
-#     #     print(f"{name} : {value:.4f}")
+    # result_extract_pairs = extract_features_from_pairs(pairs_df,data_dir,preprocessor=False)
+    
+    # print(result_extract_pairs)
