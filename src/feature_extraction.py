@@ -1,10 +1,127 @@
-#Extraire les mesures de similarités entre paires de documents
-class FeatureExtractor:
-    def __init__(self, language='english'):
-        pass
-        
+# Extract similarity measures between pairs of documents
+import re
+from pathlib import Path
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
-    def extract_all_features(self,doc1, doc2):
+
+class FeatureExtractor:
+    def __init__(self, language="english"):
+        self.language = language
+
+    @staticmethod
+    def load_document(x, input_is_path: bool):
+        if input_is_path:
+            with open(x, encoding="utf-8") as f:
+                return f.read()
+        return x
+
+    @staticmethod
+    def _char_ngrams(text: str, n: int):
+        # char n-grams
+        text = re.sub(r"\s+", " ", text.lower()).strip()
+        if len(text) < n:
+            return {text} if text else set()
+        return {text[i : i + n] for i in range(len(text) - n + 1)}
+
+    def cosine_sim(
+        self,
+        doc1,
+        doc2,
+        *,
+        input_is_path=True,
+        preprocessor=None,
+        use_char_ngrams=False,
+        ngram_range=(1, 1),
+        char_ngram_range=(3, 5),
+        language=None,
+    ) -> float:
+        """Calcul de la similarité du cosinus entre deux documents en utilisant  TF-IDF."""
+        t1 = self.load_document(doc1, input_is_path)
+        t2 = self.load_document(doc2, input_is_path)
+
+        if preprocessor is not None:
+            t1 = preprocessor.preprocess(t1, remove_stopwords=True, lemmatize=False)
+            t2 = preprocessor.preprocess(t2, remove_stopwords=True, lemmatize=False)
+
+        lang = language or self.language
+        if use_char_ngrams:
+            vectorizer = TfidfVectorizer(
+                analyzer="char",
+                ngram_range=char_ngram_range,
+                lowercase=True,
+            )
+        else:
+            vectorizer = TfidfVectorizer(
+                analyzer="word",
+                ngram_range=ngram_range,
+                lowercase=True,
+                # scikit-learn ne fournit que la liste de stopwords anglaise en standard
+                stop_words="english" if lang == "english" else None,
+            )
+
+        tfidf = vectorizer.fit_transform([t1 or "", t2 or ""])
+        return float(cosine_similarity(tfidf[0], tfidf[1])[0, 0])
+
+    def jaccard_sim(
+        self,
+        doc1,
+        doc2,
+        *,
+        input_is_path=True,
+        use_char_ngrams=False,
+        n=4,
+        preprocessor=None,
+    ) -> float:
+        """Calcul de la similarité de Jaccard en utilsant des tokens de mots ou des caractères en n-grams."""
+        t1 = self.load_document(doc1, input_is_path)
+        t2 = self.load_document(doc2, input_is_path)
+
+        if preprocessor is not None:
+            t1 = preprocessor.preprocess(t1, remove_stopwords=True, lemmatize=False)
+            t2 = preprocessor.preprocess(t2, remove_stopwords=True, lemmatize=False)
+
+        if use_char_ngrams:
+            s1, s2 = self._char_ngrams(t1 or "", n), self._char_ngrams(t2 or "", n)
+        else:
+            tokens1 = re.findall(r"\b\w+\b", (t1 or "").lower())
+            tokens2 = re.findall(r"\b\w+\b", (t2 or "").lower())
+            s1, s2 = set(tokens1), set(tokens2)
+
+        if not s1 and not s2:
+            return 0.0
+        return len(s1 & s2) / len(s1 | s2)
+
+    def dice_sim(
+        self,
+        doc1,
+        doc2,
+        *,
+        input_is_path=True,
+        use_char_ngrams=False,
+        n=4,
+        preprocessor=None,
+    ) -> float:
+        """Calcul de la similarité de Dice en utilsant des tokens de mots ou des caractères en n-grams."""
+        t1 = self.load_document(doc1, input_is_path)
+        t2 = self.load_document(doc2, input_is_path)
+
+        if preprocessor is not None:
+            t1 = preprocessor.preprocess(t1, remove_stopwords=True, lemmatize=False)
+            t2 = preprocessor.preprocess(t2, remove_stopwords=True, lemmatize=False)
+
+        if use_char_ngrams:
+            s1, s2 = self._char_ngrams(t1 or "", n), self._char_ngrams(t2 or "", n)
+        else:
+            tokens1 = re.findall(r"\b\w+\b", (t1 or "").lower())
+            tokens2 = re.findall(r"\b\w+\b", (t2 or "").lower())
+            s1, s2 = set(tokens1), set(tokens2)
+
+        if not s1 and not s2:
+            return 0.0
+        return (2 * len(s1 & s2)) / (len(s1) + len(s2))
+
+    def extract_all_features(self, doc1, doc2):
         """
             Extrait toutes les features pour une paire de documents
             features = { 
@@ -13,9 +130,10 @@ class FeatureExtractor:
                 ....
             }
         """
-        features={}
-        #features.update()
-
+        features = {}
+        features["tfidf_cos"] = self.cosine_sim(doc1, doc2,input_is_path=True, language=self.language)
+        features["jaccard_sim"] = self.jaccard_sim(doc1,doc2,input_is_path=True,use_char_ngrams=True,n=1)
+        features["dice_sim"] = self.dice_sim(doc1, doc2, input_is_path=True)
         return features
 
     def extract_features_from_pairs(pairs_df, doc_dir, preprocessor=True):
@@ -45,17 +163,23 @@ class FeatureExtractor:
 
                 REturn np.array(X), np.array(y), feature_names
         """
-
-
         pass
 
-if __name__== "___main___":
-    extractor = FeatureExtractor(language='french')
-    doc1 = ""
-    doc2 = ""
+        """
+         Pour le main, il faut bien définir le base_dir, le data_dir et les chemins relatifs des documents 
+         par rapport au data_dir avant de pouvoir lancer le main. 
+        """
 
-    features = extractor.extract_all_features(doc1, doc2)
+# if __name__ == "__main__":
+#     # base_dir = Path(__file__).resolve().parents[2]
+#     # data_dir = base_dir / "data-plagiarism"
 
-    print("Features extraites : ")
-    for name, value in features.items():
-        print(f"{name} : {value:.4f}")
+#     # extractor = FeatureExtractor(language="french")
+#     # doc1 = data_dir / "g0pC_taskd.txt"
+#     # doc2 = data_dir / "orig_taskd.txt"
+
+#     # features = extractor.extract_all_features(str(doc1), str(doc2))
+
+#     # print("Features extraites : ")
+#     # for name, value in features.items():
+#     #     print(f"{name} : {value:.4f}")
