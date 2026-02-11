@@ -4,6 +4,7 @@ import unicodedata
 import spacy
 import nltk
 from nltk.corpus import stopwords
+import os
 # Télécharger les ressources NLTK
 nltk.download('punkt')
 nltk.download('punkt_tab')
@@ -74,15 +75,20 @@ class TextPreprocessor:
             tokens = self.remove_stopwords(tokens)
         return ' '.join(tokens)
         
-    @staticmethod
-    def load_document(filepath, encoding='utf-8'):
+def load_document(input_or_path, encoding='utf-8'):
+    # Accept either a file path or raw text. If it's a valid path, read the file; otherwise, return the string.
+    if isinstance(input_or_path, str) and os.path.exists(input_or_path):
         try:
-            with open(filepath, 'r', encoding=encoding) as f:
+            with open(input_or_path, 'r', encoding=encoding) as f:
                 return f.read()
         except UnicodeDecodeError:
-            # Essayer avec un autre encodage
-            with open(filepath, 'r', encoding='latin-1') as f:
+            with open(input_or_path, 'r', encoding='latin-1') as f:
                 return f.read()
+    elif isinstance(input_or_path, str):
+        # Treat as raw text
+        return input_or_path
+    else:
+        raise TypeError("load_document expects a string path or raw text.")
 
 if __name__ == "__main__":
     # Test

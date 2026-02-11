@@ -3,3 +3,7 @@ env
 .venv
 __pycache__
 .pytest_cache
+
+data-plagiarism
+data/raw
+data/processed/*

@@ -1,38 +1,38 @@
-doc_source, doc_suspect, label
-orig_taska.txt, g0pC_taska.txt, heavy
-orig_taska.txt, g1pD_taska.txt, light
-orig_taska.txt, g3pC_taska.txt, cut
-orig_taska.txt, g4pB_taska.txt, non
-orig_taska.txt, g4pC_taska.txt, cut
-orig_taska.txt, g4pD_taska.txt, light
-orig_taska.txt, g4pE_taska.txt, heavy
-orig_taskb.txt, g0pC_taskb.txt, non
-orig_taskb.txt, g1pB_taskb.txt, non
-orig_taskb.txt, g1pD_taskb.txt, cut
-orig_taskb.txt, g3pC_taskb.txt, non
-orig_taskb.txt, g4pB_taskb.txt, non
-orig_taskb.txt, g4pC_taskb.txt, non
-orig_taskb.txt, g4pD_taskb.txt, cut
-orig_taskb.txt, g4pE_taskb.txt, light
-orig_taskc.txt, g0pC_taskc.txt, non
-orig_taskc.txt, g1pB_taskc.txt, heavy
-orig_taskc.txt, g3pC_taskc.txt, non
-orig_taskc.txt, g4pB_taskc.txt, heavy
-orig_taskc.txt, g4pC_taskc.txt, non
-orig_taskc.txt, g4pD_taskc.txt, non
-orig_taskd.txt, g0pC_taskd.txt, cut
-orig_taskd.txt, g1pB_taskd.txt, light
-orig_taskd.txt, g3pB_taskd.txt, light
-orig_taskd.txt, g3pC_taskd.txt, heavy
-orig_taskd.txt, g4pB_taskd.txt, light
-orig_taskd.txt, g4pC_taskd.txt, heavy
-orig_taskd.txt, g4pD_taskd.txt, non
-orig_taske.txt, g0pB_taske.txt, heavy
-orig_taske.txt, g0pC_taske.txt, light
-orig_taske.txt, g1pB_taske.txt, cut
-orig_taske.txt, g3pB_taske.txt, cut
-orig_taske.txt, g3pC_taske.txt, light
-orig_taske.txt, g4pB_taske.txt, cut
-orig_taske.txt, g4pC_taske.txt, light
-orig_taske.txt, g4pD_taske.txt, heavy
-orig_taske.txt, g4pE_taske.txt, non
+doc_source,doc_suspect,label
+orig_taska.txt,g0pC_taska.txt,heavy
+orig_taska.txt,g1pD_taska.txt,light
+orig_taska.txt,g3pC_taska.txt,cut
+orig_taska.txt,g4pB_taska.txt,non
+orig_taska.txt,g4pC_taska.txt,cut
+orig_taska.txt,g4pD_taska.txt,light
+orig_taska.txt,g4pE_taska.txt,heavy
+orig_taskb.txt,g0pC_taskb.txt,non
+orig_taskb.txt,g1pB_taskb.txt,non
+orig_taskb.txt,g1pD_taskb.txt,cut
+orig_taskb.txt,g3pC_taskb.txt,non
+orig_taskb.txt,g4pB_taskb.txt,non
+orig_taskb.txt,g4pC_taskb.txt,non
+orig_taskb.txt,g4pD_taskb.txt,cut
+orig_taskb.txt,g4pE_taskb.txt,light
+orig_taskc.txt,g0pC_taskc.txt,non
+orig_taskc.txt,g1pB_taskc.txt,heavy
+orig_taskc.txt,g3pC_taskc.txt,non
+orig_taskc.txt,g4pB_taskc.txt,heavy
+orig_taskc.txt,g4pC_taskc.txt,non
+orig_taskc.txt,g4pD_taskc.txt,non
+orig_taskd.txt,g0pC_taskd.txt,cut
+orig_taskd.txt,g1pB_taskd.txt,light
+orig_taskd.txt,g3pB_taskd.txt,light
+orig_taskd.txt,g3pC_taskd.txt,heavy
+orig_taskd.txt,g4pB_taskd.txt,light
+orig_taskd.txt,g4pC_taskd.txt,heavy
+orig_taskd.txt,g4pD_taskd.txt,non
+orig_taske.txt,g0pB_taske.txt,heavy
+orig_taske.txt,g0pC_taske.txt,light
+orig_taske.txt,g1pB_taske.txt,cut
+orig_taske.txt,g3pB_taske.txt,cut
+orig_taske.txt,g3pC_taske.txt,light
+orig_taske.txt,g4pB_taske.txt,cut
+orig_taske.txt,g4pC_taske.txt,light
+orig_taske.txt,g4pD_taske.txt,heavy
+orig_taske.txt,g4pE_taske.txt,non
