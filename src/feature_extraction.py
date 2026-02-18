@@ -1,6 +1,7 @@
 # Extract similarity measures between pairs of documents
 import os
 import re
+import sys
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
@@ -209,11 +210,16 @@ if __name__ == "__main__":
     # for name, value in features.items():
     #     print(f"{name} : {value:.4f}")
 
+    src_dir = os.path.dirname(os.path.abspath(__file__))
+    sys.path.insert(0, src_dir)
+    root_dir    = os.path.dirname(src_dir)
+    LABELS_PATH = os.path.join(root_dir, 'data', 'labels.csv')
+    DATA_DIR    = os.path.join(root_dir, 'data-plagiarism')
 
-    pairs_df = pd.read_csv('data/labels.csv')
+    pairs_df = pd.read_csv(LABELS_PATH)
     
 
-    X, y, feature_names = extract_features_from_pairs(pairs_df,"data-plagiarism",preprocessor=None)
+    X, y, feature_names = extract_features_from_pairs(pairs_df,DATA_DIR,preprocessor=None)
     
     # Résultat
     print(f"\nExtraction réussie !")
