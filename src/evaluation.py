@@ -276,8 +276,14 @@ if __name__ == "__main__":
     results = compare_models(X, y, feature_names=feature_names)
     plot_model_comparison(results, save_path=os.path.join(output_dir, 'model_comparison.png'))
 
-    # 3. Ablation study
-    ablation_results = ablation_study(X, y, feature_names)
+    # 2. Trouver le meilleur modèle
+    best_model = max(results, key=lambda m: results[m]['metrics']['f1_macro'])
+    best_f1    = results[best_model]['metrics']['f1_macro']
+    print(f"\n  Meilleur modèle : {best_model} (F1={best_f1:.4f})")
+    print(f"  => Ablation study lancée avec : {best_model}")
+
+    # 3. Ablation study avec le meilleur modèle
+    ablation_results = ablation_study(X, y, feature_names, classifier_type=best_model)
     plot_ablation_study(ablation_results, save_path=os.path.join(output_dir, 'ablation_study.png'))
 
 
