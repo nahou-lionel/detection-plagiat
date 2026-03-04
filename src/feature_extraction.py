@@ -1,6 +1,7 @@
 # Extract similarity measures between pairs of documents
 import os
 import re
+import sys
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
@@ -9,9 +10,12 @@ from pathlib import Path
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from preprocessing import load_document
+import spacy
+
 class FeatureExtractor:
     def __init__(self, language="english"):
         self.language = language
+        self._nlp = spacy.load("en_core_web_sm" if language == "english" else "fr_core_news_sm")
 
 
     @staticmethod
@@ -119,6 +123,27 @@ class FeatureExtractor:
             return 0.0
         return (2 * len(s1 & s2)) / (len(s1) + len(s2))
 
+    def _get_entities(self, text, entity_type=None):
+        """
+        Retourne l'ensemble des entités nommées d'un texte.
+        Si entity_type est précisé (ex: "PERSON"), filtre par type.
+        """
+        doc = self._nlp(text or "")
+        if entity_type is None:
+            return {ent.text.lower() for ent in doc.ents}
+        return {ent.text.lower() for ent in doc.ents if ent.label_ == entity_type}
+
+    def ner_jaccard(self, doc1, doc2, entity_type=None):
+        """
+        Similarité de Jaccard sur les entités nommées.
+        entity_type : None (toutes) ou "PERSON", "ORG", "GPE", "DATE"...
+        """
+        s1 = self._get_entities(doc1, entity_type)
+        s2 = self._get_entities(doc2, entity_type)
+        if not s1 and not s2:
+            return 0.0
+        return len(s1 & s2) / len(s1 | s2)
+
     def extract_all_features(self, doc1, doc2):
         """
             Extrait toutes les features pour une paire de documents
@@ -129,9 +154,12 @@ class FeatureExtractor:
             }
         """
         features = {}
-        features["tfidf_cos"] = self.cosine_sim(doc1, doc2, language=self.language)
-        features["jaccard_sim"] = self.jaccard_sim(doc1,doc2,use_char_ngrams=True,n=1)
-        features["dice_sim"] = self.dice_sim(doc1, doc2)
+        features["tfidf_cos"]          = self.cosine_sim(doc1, doc2, language=self.language)
+        features["jaccard_sim"]        = self.jaccard_sim(doc1, doc2, use_char_ngrams=True, n=1)
+        features["dice_sim"]           = self.dice_sim(doc1, doc2)
+        features["ner_jaccard"]        = self.ner_jaccard(doc1, doc2)
+        features["ner_jaccard_person"] = self.ner_jaccard(doc1, doc2, entity_type="PERSON")
+        features["ner_jaccard_org"]    = self.ner_jaccard(doc1, doc2, entity_type="ORG")
         return features
 
 def extract_features_from_pairs(pairs_df, doc_dir, preprocessor=None):
@@ -209,11 +237,16 @@ if __name__ == "__main__":
     # for name, value in features.items():
     #     print(f"{name} : {value:.4f}")
 
+    src_dir = os.path.dirname(os.path.abspath(__file__))
+    sys.path.insert(0, src_dir)
+    root_dir    = os.path.dirname(src_dir)
+    LABELS_PATH = os.path.join(root_dir, 'data', 'labels.csv')
+    DATA_DIR    = os.path.join(root_dir, 'data-plagiarism')
 
-    pairs_df = pd.read_csv('data/labels.csv')
+    pairs_df = pd.read_csv(LABELS_PATH)
     
 
-    X, y, feature_names = extract_features_from_pairs(pairs_df,"data-plagiarism",preprocessor=None)
+    X, y, feature_names = extract_features_from_pairs(pairs_df,DATA_DIR,preprocessor=None)
     
     # Résultat
     print(f"\nExtraction réussie !")
