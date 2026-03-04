@@ -11,6 +11,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from preprocessing import load_document
 import spacy
+from gensim.models import Word2Vec
 
 class FeatureExtractor:
     def __init__(self, language="english"):
@@ -144,6 +145,38 @@ class FeatureExtractor:
             return 0.0
         return len(s1 & s2) / len(s1 | s2)
 
+    def semantic_sim(self, doc1, doc2):
+        """
+        Similarité sémantique via Word2Vec.
+        Entraîne un modèle sur les tokens des deux documents,
+        puis compare leurs vecteurs moyens (document embedding).
+        """
+        tokens1 = re.findall(r"\b\w+\b", (doc1 or "").lower())
+        tokens2 = re.findall(r"\b\w+\b", (doc2 or "").lower())
+
+        if not tokens1 or not tokens2:
+            return 0.0
+
+        model = Word2Vec([tokens1, tokens2], vector_size=50, min_count=1, epochs=10, workers=1)
+
+        def _mean_vector(tokens):
+            vecs = [model.wv[t] for t in tokens if t in model.wv]
+            if not vecs:
+                return None
+            return np.mean(vecs, axis=0)
+
+        v1 = _mean_vector(tokens1)
+        v2 = _mean_vector(tokens2)
+
+        if v1 is None or v2 is None:
+            return 0.0
+
+        norm = np.linalg.norm(v1) * np.linalg.norm(v2)
+        if norm == 0:
+            return 0.0
+
+        return float(np.clip(np.dot(v1, v2) / norm, 0.0, 1.0))
+
     def extract_all_features(self, doc1, doc2):
         """
             Extrait toutes les features pour une paire de documents
@@ -160,6 +193,7 @@ class FeatureExtractor:
         features["ner_jaccard"]        = self.ner_jaccard(doc1, doc2)
         features["ner_jaccard_person"] = self.ner_jaccard(doc1, doc2, entity_type="PERSON")
         features["ner_jaccard_org"]    = self.ner_jaccard(doc1, doc2, entity_type="ORG")
+        features["semantic_sim"]       = self.semantic_sim(doc1, doc2)
         return features
 
 def extract_features_from_pairs(pairs_df, doc_dir, preprocessor=None):
