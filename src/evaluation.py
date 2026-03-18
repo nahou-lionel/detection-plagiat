@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from itertools import combinations
+from itertools import combinations, chain
 
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
@@ -69,6 +69,42 @@ def print_evaluation(metrics, classifier_name="Classificateur"):
 # ─────────────────────────────────────────────
 # 2. Visualisation – Matrice de confusion
 # ─────────────────────────────────────────────
+
+def plot_confusion_matrix(y_true, y_pred, classes, title="Matrice de Confusion", save_path=None):
+    """
+    Calcule et affiche la matrice de confusion.
+
+    Retourne :
+        matplotlib.figure.Figure
+    """
+    cm = confusion_matrix(y_true, y_pred, labels=classes)
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+    im = ax.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
+    plt.colorbar(im, ax=ax)
+
+    ax.set_xticks(range(len(classes)))
+    ax.set_yticks(range(len(classes)))
+    ax.set_xticklabels(classes, rotation=45, ha='right')
+    ax.set_yticklabels(classes)
+
+    thresh = cm.max() / 2
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            color = 'white' if cm[i, j] > thresh else 'black'
+            ax.text(j, i, str(cm[i, j]), ha='center', va='center', color=color, fontsize=12)
+
+    ax.set_ylabel('Vrai label')
+    ax.set_xlabel('Label prédit')
+    ax.set_title(title)
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path, dpi=150, bbox_inches='tight')
+        print(f"  Matrice de confusion sauvegardée : {save_path}")
+
+    return fig
+
 
 # ─────────────────────────────────────────────
 # 3. Comparaison de plusieurs modèles
@@ -250,6 +286,159 @@ def plot_ablation_study(ablation_results, save_path=None):
 
 
 # ─────────────────────────────────────────────
+# 5. Validation croisée
+# ─────────────────────────────────────────────
+
+def cross_validate_model(X, y, classifier_type='random_forest', n_splits=5):
+    """
+    Effectue une validation croisée stratifiée sur le modèle choisi.
+
+    Retourne :
+        dict {metric -> {mean, std, scores}}
+    """
+    le = LabelEncoder()
+    y_encoded = le.fit_transform(y)
+
+    clf = PlagiarismClassifier(classifier_type)
+    model = clf.model
+
+    cv = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
+
+    scorers = {
+        'accuracy':        'accuracy',
+        'f1_macro':        make_scorer(f1_score,        average='macro', zero_division=0),
+        'precision_macro': make_scorer(precision_score, average='macro', zero_division=0),
+        'recall_macro':    make_scorer(recall_score,    average='macro', zero_division=0),
+    }
+
+    print(f"\n{'='*60}")
+    print(f"  Validation croisée – {classifier_type} ({n_splits} folds)")
+    print(f"{'='*60}")
+
+    cv_results = {}
+    for metric, scorer in scorers.items():
+        scores = cross_val_score(model, X, y_encoded, cv=cv, scoring=scorer)
+        mean, std = scores.mean(), scores.std()
+        cv_results[metric] = {'mean': mean, 'std': std, 'scores': scores.tolist()}
+        print(f"  {metric:<20s}: {mean:.4f} ± {std:.4f}")
+
+    return cv_results
+
+
+# ─────────────────────────────────────────────
+# 6. Grille complète features × modèles
+# ─────────────────────────────────────────────
+
+def full_grid_search(X, y, feature_names, test_size=0.2, random_state=42):
+    """
+    Teste toutes les combinaisons possibles de features × modèles.
+    Avec 7 features → 127 sous-ensembles × 5 modèles = 635 entraînements.
+
+    Retourne :
+        (best_clf_type, best_features, results_df)
+    """
+    classifier_types = [
+        'random_forest', 'gradient_boosting',
+        'naive_bayes', 'svm', 'logistic_regression'
+    ]
+
+    n = X.shape[1]
+    all_subsets = list(chain.from_iterable(
+        combinations(range(n), r) for r in range(1, n + 1)
+    ))
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=test_size, stratify=y, random_state=random_state
+    )
+
+    total = len(all_subsets) * len(classifier_types)
+    print(f"\n{'='*60}")
+    print(f"  Grid Search : {len(all_subsets)} sous-ensembles × {len(classifier_types)} modèles = {total} entraînements")
+    print(f"{'='*60}")
+
+    records = []
+    count = 0
+    for subset in all_subsets:
+        feat_names = [feature_names[i] for i in subset]
+        feat_label = " + ".join(feat_names)
+        Xtr = X_train[:, list(subset)]
+        Xte = X_test[:, list(subset)]
+
+        for clf_type in classifier_types:
+            clf = PlagiarismClassifier(clf_type)
+            clf.train(Xtr, y_train)
+            y_pred = clf.predict(Xte)
+            f1  = f1_score(y_test, y_pred, average='macro', zero_division=0)
+            acc = accuracy_score(y_test, y_pred)
+            records.append({
+                'model':    clf_type,
+                'features': feat_label,
+                'n_feats':  len(subset),
+                'f1_macro': f1,
+                'accuracy': acc,
+            })
+            count += 1
+            if count % 50 == 0:
+                print(f"  ... {count}/{total} entraînements effectués")
+
+    results_df = pd.DataFrame(records).sort_values('f1_macro', ascending=False).reset_index(drop=True)
+
+    best = results_df.iloc[0]
+    print(f"\n  ✓ Meilleure combinaison trouvée :")
+    print(f"    Modèle   : {best['model']}")
+    print(f"    Features : {best['features']}")
+    print(f"    F1-score : {best['f1_macro']:.4f}")
+    print(f"    Accuracy : {best['accuracy']:.4f}")
+
+    return best['model'], best['features'], results_df
+
+
+def plot_grid_search(results_df, top_n=15, save_path=None):
+    """
+    Graphique barh des top_n meilleures combinaisons modèle × features.
+
+    Retourne :
+        matplotlib.figure.Figure
+    """
+    short_names = {
+        'random_forest':      'RF',
+        'gradient_boosting':  'GB',
+        'naive_bayes':        'NB',
+        'svm':                'SVM',
+        'logistic_regression':'LR',
+    }
+
+    top_df = results_df.head(top_n).copy()
+    # Trier croissant pour barh (meilleur en haut)
+    top_df = top_df.sort_values('f1_macro', ascending=True)
+
+    labels = [
+        f"{short_names.get(row['model'], row['model'])} | {row['features']}"
+        for _, row in top_df.iterrows()
+    ]
+    f1_values = top_df['f1_macro'].tolist()
+
+    fig, ax = plt.subplots(figsize=(12, max(5, top_n * 0.5)))
+    bars = ax.barh(labels, f1_values, color='steelblue')
+
+    for bar, val in zip(bars, f1_values):
+        ax.text(bar.get_width() + 0.003, bar.get_y() + bar.get_height() / 2,
+                f'{val:.4f}', va='center', fontsize=8)
+
+    ax.set_xlim(0, 1.12)
+    ax.set_xlabel('F1-score (macro)')
+    ax.set_title(f'Grid Search – Top {top_n} combinaisons modèle × features')
+    ax.grid(axis='x', alpha=0.3)
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path, dpi=150, bbox_inches='tight')
+        print(f"  Grid search sauvegardée : {save_path}")
+
+    return fig
+
+
+# ─────────────────────────────────────────────
 # Point d'entrée – pipeline d'évaluation complet
 # ─────────────────────────────────────────────
 
@@ -272,19 +461,35 @@ if __name__ == "__main__":
     X, y, feature_names = extract_features_from_pairs(pairs_df, docs_dir)
     print(f"Shape : {X.shape} | Classes : {sorted(set(y))}")
 
-    # 1. Comparaison des modèles
+    # 1. Comparaison des modèles (toutes les features)
     results = compare_models(X, y, feature_names=feature_names)
     plot_model_comparison(results, save_path=os.path.join(output_dir, 'model_comparison.png'))
 
-    # 2. Trouver le meilleur modèle
+    # 2. Identifier le meilleur modèle
     best_model = max(results, key=lambda m: results[m]['metrics']['f1_macro'])
     best_f1    = results[best_model]['metrics']['f1_macro']
     print(f"\n  Meilleur modèle : {best_model} (F1={best_f1:.4f})")
-    print(f"  => Ablation study lancée avec : {best_model}")
 
-    # 3. Ablation study avec le meilleur modèle
+    # 3. Grille complète features × modèles
+    best_model, best_feats, grid_df = full_grid_search(X, y, feature_names)
+    plot_grid_search(grid_df, save_path=os.path.join(output_dir, 'grid_search.png'))
+    grid_df.to_csv(os.path.join(output_dir, 'grid_search.csv'), index=False)
+
+    # 4. Ablation study avec le meilleur modèle
+    print(f"\n  => Ablation study lancée avec : {best_model}")
     ablation_results = ablation_study(X, y, feature_names, classifier_type=best_model)
     plot_ablation_study(ablation_results, save_path=os.path.join(output_dir, 'ablation_study.png'))
 
+    # 5. Matrice de confusion
+    plot_confusion_matrix(
+        results[best_model]['y_test'],
+        results[best_model]['y_pred'],
+        classes=sorted(set(y)),
+        title=f"Matrice de Confusion – {best_model}",
+        save_path=os.path.join(output_dir, 'confusion_matrix.png')
+    )
+
+    # 6. Validation croisée
+    cross_validate_model(X, y, classifier_type=best_model)
 
     print("\nÉvaluation terminée. Résultats dans", output_dir)
