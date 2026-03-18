@@ -145,6 +145,7 @@ def compare_models(X, y, feature_names=None, test_size=0.2, random_state=42):
             'metrics':    metrics,
             'y_pred':     y_pred,
             'y_test':     y_test,
+            'X_test':     X_test,
         }
         print_evaluation(metrics, clf_type)
 
@@ -439,6 +440,55 @@ def plot_grid_search(results_df, top_n=15, save_path=None):
 
 
 # ─────────────────────────────────────────────
+# 7. Analyse SHAP
+# ─────────────────────────────────────────────
+
+def shap_analysis(classifier, X_test, feature_names, class_names, save_path=None):
+    """
+    Calcule et affiche les valeurs SHAP pour expliquer les prédictions du modèle.
+
+    Paramètres :
+        classifier    : PlagiarismClassifier entraîné
+        X_test        : matrice de features du jeu de test
+        feature_names : liste des noms de features
+        class_names   : liste des classes
+        save_path     : chemin optionnel pour sauvegarder le graphique
+
+    Retourne :
+        shap_values
+    """
+    import shap
+
+    # TreeExplainer : RandomForest uniquement 
+    if classifier.classifier_type == 'random_forest':
+        explainer   = shap.TreeExplainer(classifier.model)
+        shap_values = explainer.shap_values(X_test)
+    else:
+        explainer   = shap.KernelExplainer(classifier.model.predict_proba, X_test)
+        shap_values = explainer.shap_values(X_test)
+
+    # Summary plot : importance moyenne par feature (toutes classes confondues)
+    plt.figure()
+    shap.summary_plot(
+        shap_values,
+        X_test,
+        feature_names=feature_names,
+        class_names=class_names,
+        plot_type="bar",
+        show=False,
+    )
+    plt.title("SHAP – Importance des features par classe")
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path, dpi=150, bbox_inches='tight')
+        print(f"  SHAP summary sauvegardé : {save_path}")
+
+    plt.close()
+    return shap_values
+
+
+# ─────────────────────────────────────────────
 # Point d'entrée – pipeline d'évaluation complet
 # ─────────────────────────────────────────────
 
@@ -491,5 +541,14 @@ if __name__ == "__main__":
 
     # 6. Validation croisée
     cross_validate_model(X, y, classifier_type=best_model)
+
+    # 7. Analyse SHAP
+    shap_analysis(
+        results[best_model]['classifier'],
+        results[best_model]['X_test'],
+        feature_names=feature_names,
+        class_names=sorted(set(y)),
+        save_path=os.path.join(output_dir, 'shap_summary.png')
+    )
 
     print("\nÉvaluation terminée. Résultats dans", output_dir)
