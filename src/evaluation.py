@@ -1,4 +1,3 @@
-# Evaluer les performances et créer des visualisations
 import os
 import sys
 import numpy as np
@@ -67,7 +66,7 @@ def print_evaluation(metrics, classifier_name="Classificateur"):
 
 
 # ─────────────────────────────────────────────
-# 2. Visualisation – Matrice de confusion
+# 2. Matrice de confusion
 # ─────────────────────────────────────────────
 
 def plot_confusion_matrix(y_true, y_pred, classes, title="Matrice de Confusion", save_path=None):
@@ -198,7 +197,7 @@ def plot_model_comparison(results, save_path=None):
 
 
 # ─────────────────────────────────────────────
-# 4. Ablation study (question scientifique)
+# 4. Ablation study 
 # ─────────────────────────────────────────────
 
 def ablation_study(X, y, feature_names, test_size=0.2, random_state=42, classifier_type='random_forest'):
@@ -216,7 +215,7 @@ def ablation_study(X, y, feature_names, test_size=0.2, random_state=42, classifi
     )
 
     print(f"\n{'='*60}")
-    print(f"  Ablation Study – contribution de chaque mesure de similarité")
+    print(f"  Ablation Study - contribution de chaque mesure de similarité")
     print(f"  Classificateur : {classifier_type}")
     print(f"{'='*60}")
 
@@ -312,7 +311,7 @@ def cross_validate_model(X, y, classifier_type='random_forest', n_splits=5):
     }
 
     print(f"\n{'='*60}")
-    print(f"  Validation croisée – {classifier_type} ({n_splits} folds)")
+    print(f"  Validation croisée - {classifier_type} ({n_splits} folds)")
     print(f"{'='*60}")
 
     cv_results = {}
@@ -326,13 +325,13 @@ def cross_validate_model(X, y, classifier_type='random_forest', n_splits=5):
 
 
 # ─────────────────────────────────────────────
-# 6. Grille complète features × modèles
+# 6. Grille complète features x modèles
 # ─────────────────────────────────────────────
 
 def full_grid_search(X, y, feature_names, test_size=0.2, random_state=42):
     """
-    Teste toutes les combinaisons possibles de features × modèles.
-    Avec 7 features → 127 sous-ensembles × 5 modèles = 635 entraînements.
+    Teste toutes les combinaisons possibles de features x modèles.
+    Avec 7 features :  127 sous-ensembles x 5 modèles = 635 entraînements.
 
     Retourne :
         (best_clf_type, best_features, results_df)
@@ -353,7 +352,7 @@ def full_grid_search(X, y, feature_names, test_size=0.2, random_state=42):
 
     total = len(all_subsets) * len(classifier_types)
     print(f"\n{'='*60}")
-    print(f"  Grid Search : {len(all_subsets)} sous-ensembles × {len(classifier_types)} modèles = {total} entraînements")
+    print(f"  Grid Search : {len(all_subsets)} sous-ensembles x {len(classifier_types)} modèles = {total} entraînements")
     print(f"{'='*60}")
 
     records = []
@@ -384,7 +383,7 @@ def full_grid_search(X, y, feature_names, test_size=0.2, random_state=42):
     results_df = pd.DataFrame(records).sort_values('f1_macro', ascending=False).reset_index(drop=True)
 
     best = results_df.iloc[0]
-    print(f"\n  ✓ Meilleure combinaison trouvée :")
+    print(f"\n  Meilleure combinaison trouvée :")
     print(f"    Modèle   : {best['model']}")
     print(f"    Features : {best['features']}")
     print(f"    F1-score : {best['f1_macro']:.4f}")
@@ -395,7 +394,7 @@ def full_grid_search(X, y, feature_names, test_size=0.2, random_state=42):
 
 def plot_grid_search(results_df, top_n=15, save_path=None):
     """
-    Graphique barh des top_n meilleures combinaisons modèle × features.
+    Graphique barh des top_n meilleures combinaisons modèle x features.
 
     Retourne :
         matplotlib.figure.Figure
@@ -427,7 +426,7 @@ def plot_grid_search(results_df, top_n=15, save_path=None):
 
     ax.set_xlim(0, 1.12)
     ax.set_xlabel('F1-score (macro)')
-    ax.set_title(f'Grid Search – Top {top_n} combinaisons modèle × features')
+    ax.set_title(f'Grid Search - Top {top_n} combinaisons modèle x features')
     ax.grid(axis='x', alpha=0.3)
     plt.tight_layout()
 
@@ -476,7 +475,7 @@ def shap_analysis(classifier, X_test, feature_names, class_names, save_path=None
         plot_type="bar",
         show=False,
     )
-    plt.title("SHAP – Importance des features par classe")
+    plt.title("SHAP - Importance des features par classe")
     plt.tight_layout()
 
     if save_path:
@@ -488,7 +487,7 @@ def shap_analysis(classifier, X_test, feature_names, class_names, save_path=None
 
 
 # ─────────────────────────────────────────────
-# Point d'entrée – pipeline d'évaluation complet
+# Point d'entrée - pipeline d'évaluation complet
 # ─────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -519,7 +518,7 @@ if __name__ == "__main__":
     best_f1    = results[best_model]['metrics']['f1_macro']
     print(f"\n  Meilleur modèle : {best_model} (F1={best_f1:.4f})")
 
-    # 3. Grille complète features × modèles
+    # 3. Grille complète features x modèles
     best_model, best_feats, grid_df = full_grid_search(X, y, feature_names)
     plot_grid_search(grid_df, save_path=os.path.join(output_dir, 'grid_search.png'))
     grid_df.to_csv(os.path.join(output_dir, 'grid_search.csv'), index=False)
@@ -534,7 +533,7 @@ if __name__ == "__main__":
         results[best_model]['y_test'],
         results[best_model]['y_pred'],
         classes=sorted(set(y)),
-        title=f"Matrice de Confusion – {best_model}",
+        title=f"Matrice de Confusion - {best_model}",
         save_path=os.path.join(output_dir, 'confusion_matrix.png')
     )
 

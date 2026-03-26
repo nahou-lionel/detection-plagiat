@@ -1,4 +1,3 @@
-#Entrainer et gerer les modèles de classification
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.naive_bayes import GaussianNB
@@ -112,7 +111,7 @@ class PlagiarismClassifier:
         else:
             features_with_importance = list(zip(range(len(importances)), importances))
 
-        # Trierrrrrr
+        # Trier
 
         features_with_importance.sort(key=lambda x : x[1], reverse=True)
         return features_with_importance[:top_n]

@@ -1,11 +1,9 @@
-# Extract similarity measures between pairs of documents
 import os
 import re
 import sys
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
-# from .preprocessing import load_document
 from pathlib import Path
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity

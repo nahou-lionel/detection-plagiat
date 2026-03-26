@@ -1,11 +1,11 @@
-# Corpus de plagiat (PAN)
+# Corpus de plagiat
 
-Ce dossier doit contenir les fichiers texte du corpus PAN utilisés pour l'entraînement et l'évaluation.
+Ce dossier doit contenir les fichiers texte du corpus utilisés pour l'entraînement et l'évaluation.
 
 ## Téléchargement
 
-1. Télécharger le corpus depuis la compétition PAN :
-   https://pan.webis.de/clef09/pan09-web/plagiarism-detection.html
+1. Télécharger le corpus :
+   https://ecampus-vert.unicaen.fr/mod/resource/view.php?id=278104
 
 2. Extraire l'archive et copier **tous les fichiers `.txt`** dans ce dossier (`data-plagiarism/`).
 

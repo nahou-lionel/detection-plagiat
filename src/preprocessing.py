@@ -1,4 +1,3 @@
-#Nettoyer et normaliser les textes
 import re
 import unicodedata
 import spacy
@@ -76,7 +75,6 @@ class TextPreprocessor:
         return ' '.join(tokens)
         
 def load_document(input_or_path, encoding='utf-8'):
-    # Accept either a file path or raw text. If it's a valid path, read the file; otherwise, return the string.
     if isinstance(input_or_path, str) and os.path.exists(input_or_path):
         try:
             with open(input_or_path, 'r', encoding=encoding) as f:
@@ -85,7 +83,6 @@ def load_document(input_or_path, encoding='utf-8'):
             with open(input_or_path, 'r', encoding='latin-1') as f:
                 return f.read()
     elif isinstance(input_or_path, str):
-        # Treat as raw text
         return input_or_path
     else:
         raise TypeError("load_document expects a string path or raw text.")
