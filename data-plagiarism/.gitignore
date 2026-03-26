@@ -1,0 +1,8 @@
+# Ignorer les fichiers du corpus (non redistribuables)
+*.txt
+*.xml
+*.pdf
+
+# Garder ce fichier et le README
+!.gitignore
+!README.md

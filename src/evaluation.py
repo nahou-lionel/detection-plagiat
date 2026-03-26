@@ -145,11 +145,10 @@ def compare_models(X, y, feature_names=None, test_size=0.2, random_state=42):
             'metrics':    metrics,
             'y_pred':     y_pred,
             'y_test':     y_test,
-            'X_test':     X_test,
         }
         print_evaluation(metrics, clf_type)
 
-    return results
+    return results, X_test
 
 
 def plot_model_comparison(results, save_path=None):
@@ -512,7 +511,7 @@ if __name__ == "__main__":
     print(f"Shape : {X.shape} | Classes : {sorted(set(y))}")
 
     # 1. Comparaison des modèles (toutes les features)
-    results = compare_models(X, y, feature_names=feature_names)
+    results, X_test = compare_models(X, y, feature_names=feature_names)
     plot_model_comparison(results, save_path=os.path.join(output_dir, 'model_comparison.png'))
 
     # 2. Identifier le meilleur modèle
@@ -545,7 +544,7 @@ if __name__ == "__main__":
     # 7. Analyse SHAP
     shap_analysis(
         results[best_model]['classifier'],
-        results[best_model]['X_test'],
+        X_test,
         feature_names=feature_names,
         class_names=sorted(set(y)),
         save_path=os.path.join(output_dir, 'shap_summary.png')

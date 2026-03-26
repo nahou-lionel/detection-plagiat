@@ -1,0 +1,636 @@
+model,features,n_feats,f1_macro,accuracy
+random_forest,jaccard_sim + ner_jaccard + semantic_sim,3,0.6949404761904762,0.7368421052631579
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard,3,0.6886904761904762,0.7368421052631579
+svm,dice_sim + ner_jaccard,2,0.6393849206349207,0.6842105263157895
+svm,jaccard_sim + dice_sim,2,0.6361111111111111,0.6842105263157895
+svm,dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.6225490196078431,0.6842105263157895
+random_forest,dice_sim + ner_jaccard,2,0.6196969696969696,0.6842105263157895
+gradient_boosting,dice_sim + ner_jaccard + ner_jaccard_person,3,0.6172619047619048,0.6842105263157895
+random_forest,jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.615406162464986,0.6842105263157895
+gradient_boosting,ner_jaccard + ner_jaccard_person + semantic_sim,3,0.612942612942613,0.631578947368421
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard_org,3,0.6111111111111112,0.6842105263157895
+random_forest,jaccard_sim + dice_sim + semantic_sim,3,0.6111111111111112,0.6842105263157895
+naive_bayes,jaccard_sim + dice_sim,2,0.6111111111111112,0.6842105263157895
+naive_bayes,dice_sim + ner_jaccard,2,0.6083333333333334,0.6842105263157895
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard_org + semantic_sim,4,0.580952380952381,0.631578947368421
+logistic_regression,dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.5753968253968254,0.631578947368421
+logistic_regression,dice_sim + ner_jaccard + ner_jaccard_org,3,0.5753968253968254,0.631578947368421
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org,4,0.5753968253968254,0.631578947368421
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.5753968253968254,0.631578947368421
+svm,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org,4,0.5689775910364145,0.631578947368421
+gradient_boosting,dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.5666666666666667,0.6842105263157895
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person,4,0.5636904761904762,0.631578947368421
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard,3,0.5636904761904762,0.631578947368421
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_org,4,0.5636904761904762,0.631578947368421
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.5636904761904762,0.631578947368421
+naive_bayes,dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.5560515873015872,0.631578947368421
+random_forest,tfidf_cos + ner_jaccard + ner_jaccard_person,3,0.5560515873015872,0.631578947368421
+gradient_boosting,tfidf_cos + ner_jaccard + ner_jaccard_org,3,0.5555555555555556,0.631578947368421
+svm,jaccard_sim + dice_sim + ner_jaccard,3,0.5548611111111111,0.631578947368421
+naive_bayes,dice_sim + ner_jaccard_person,2,0.5547619047619048,0.631578947368421
+gradient_boosting,dice_sim + ner_jaccard,2,0.5547619047619048,0.631578947368421
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard + semantic_sim,4,0.5527777777777778,0.631578947368421
+naive_bayes,dice_sim + ner_jaccard + ner_jaccard_org,3,0.5527777777777778,0.631578947368421
+random_forest,tfidf_cos + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.5527777777777778,0.631578947368421
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard,3,0.5527777777777778,0.631578947368421
+random_forest,jaccard_sim + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.5520833333333333,0.631578947368421
+naive_bayes,tfidf_cos + ner_jaccard + ner_jaccard_org,3,0.5520833333333333,0.631578947368421
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.5520833333333333,0.631578947368421
+random_forest,jaccard_sim + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.5520833333333333,0.631578947368421
+naive_bayes,dice_sim + ner_jaccard_org,2,0.55,0.6842105263157895
+naive_bayes,dice_sim + ner_jaccard_person + ner_jaccard_org,3,0.5458333333333334,0.631578947368421
+random_forest,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.5401785714285714,0.631578947368421
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard_org,3,0.5363636363636364,0.631578947368421
+random_forest,jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.5261904761904761,0.5789473684210527
+gradient_boosting,dice_sim + ner_jaccard + ner_jaccard_org,3,0.5249999999999999,0.631578947368421
+random_forest,jaccard_sim + ner_jaccard + ner_jaccard_org,3,0.5214285714285714,0.5789473684210527
+random_forest,jaccard_sim + ner_jaccard + ner_jaccard_person,3,0.5194444444444444,0.5789473684210527
+random_forest,jaccard_sim + ner_jaccard,2,0.5194444444444444,0.5789473684210527
+naive_bayes,jaccard_sim + ner_jaccard,2,0.5178571428571428,0.5789473684210527
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard,3,0.5175438596491228,0.631578947368421
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard + semantic_sim,4,0.5175438596491228,0.631578947368421
+gradient_boosting,dice_sim + ner_jaccard_person + ner_jaccard_org,3,0.5125541125541125,0.631578947368421
+gradient_boosting,dice_sim + ner_jaccard + semantic_sim,3,0.5101190476190476,0.5789473684210527
+gradient_boosting,dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.5101190476190476,0.5789473684210527
+naive_bayes,ner_jaccard + ner_jaccard_person + ner_jaccard_org,3,0.5069444444444444,0.5789473684210527
+gradient_boosting,dice_sim,1,0.5054112554112554,0.5789473684210527
+gradient_boosting,dice_sim + ner_jaccard_person,2,0.5054112554112554,0.5789473684210527
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_org,4,0.5042950513538749,0.5789473684210527
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard_person + ner_jaccard_org,4,0.5031746031746032,0.5789473684210527
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard,3,0.5004960317460317,0.5789473684210527
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_org,4,0.49849624060150377,0.5789473684210527
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.49849624060150377,0.5789473684210527
+random_forest,dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.49583333333333335,0.5789473684210527
+random_forest,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_org,4,0.49583333333333335,0.5789473684210527
+random_forest,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.49583333333333335,0.5789473684210527
+random_forest,dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.49583333333333335,0.5789473684210527
+random_forest,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.49583333333333335,0.5789473684210527
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard_org + semantic_sim,4,0.4944444444444444,0.631578947368421
+svm,dice_sim,1,0.4944444444444444,0.631578947368421
+svm,dice_sim + ner_jaccard + semantic_sim,3,0.49338235294117644,0.5789473684210527
+svm,jaccard_sim + dice_sim + ner_jaccard + semantic_sim,4,0.49338235294117644,0.5789473684210527
+gradient_boosting,ner_jaccard + ner_jaccard_org + semantic_sim,3,0.4928571428571429,0.5263157894736842
+gradient_boosting,jaccard_sim + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.4928571428571429,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org,5,0.49254385964912284,0.5789473684210527
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.49254385964912284,0.5789473684210527
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,6,0.49254385964912284,0.5789473684210527
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_org,4,0.49254385964912284,0.5789473684210527
+random_forest,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.49236111111111114,0.5789473684210527
+gradient_boosting,tfidf_cos + ner_jaccard_org,2,0.49236111111111114,0.5789473684210527
+random_forest,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.49236111111111114,0.5789473684210527
+random_forest,jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.49226190476190473,0.5789473684210527
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person,5,0.49226190476190473,0.5789473684210527
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard,3,0.49226190476190473,0.5789473684210527
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard,4,0.49226190476190473,0.5789473684210527
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org,4,0.49226190476190473,0.5789473684210527
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org,5,0.49226190476190473,0.5789473684210527
+random_forest,jaccard_sim + dice_sim + ner_jaccard_org + semantic_sim,4,0.49226190476190473,0.5789473684210527
+naive_bayes,jaccard_sim + ner_jaccard + ner_jaccard_org,3,0.4920634920634921,0.5789473684210527
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard_person,3,0.4909090909090909,0.5789473684210527
+svm,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.4908730158730159,0.5789473684210527
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org,5,0.49027777777777776,0.5789473684210527
+random_forest,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person,4,0.49027777777777776,0.5789473684210527
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person,4,0.49027777777777776,0.5789473684210527
+random_forest,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org,4,0.49027777777777776,0.5789473684210527
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_org,4,0.49027777777777776,0.5789473684210527
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.4895833333333333,0.5789473684210527
+random_forest,tfidf_cos + dice_sim + ner_jaccard,3,0.4895833333333333,0.5789473684210527
+random_forest,dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.4880952380952381,0.5789473684210527
+gradient_boosting,jaccard_sim + dice_sim,2,0.4880952380952381,0.5789473684210527
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + semantic_sim,5,0.4880952380952381,0.5789473684210527
+random_forest,jaccard_sim + dice_sim + ner_jaccard + semantic_sim,4,0.4880952380952381,0.5789473684210527
+random_forest,dice_sim + ner_jaccard + ner_jaccard_person,3,0.4880952380952381,0.5789473684210527
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org,4,0.4880952380952381,0.5789473684210527
+random_forest,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.4873015873015873,0.5789473684210527
+random_forest,tfidf_cos + ner_jaccard + ner_jaccard_org,3,0.4873015873015873,0.5789473684210527
+gradient_boosting,tfidf_cos + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.4873015873015873,0.5789473684210527
+random_forest,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.4873015873015873,0.5789473684210527
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.48660714285714285,0.5789473684210527
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.48660714285714285,0.5789473684210527
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,6,0.48660714285714285,0.5789473684210527
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,7,0.48660714285714285,0.5789473684210527
+gradient_boosting,ner_jaccard + semantic_sim,2,0.48611111111111116,0.5263157894736842
+random_forest,jaccard_sim + ner_jaccard_org + semantic_sim,3,0.48611111111111105,0.5789473684210527
+naive_bayes,jaccard_sim + ner_jaccard + ner_jaccard_person,3,0.48564425770308123,0.5789473684210527
+random_forest,dice_sim + ner_jaccard + semantic_sim,3,0.48462301587301587,0.5789473684210527
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person,4,0.4846230158730158,0.5789473684210527
+random_forest,tfidf_cos + ner_jaccard + semantic_sim,3,0.4846230158730158,0.5789473684210527
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard,3,0.4846230158730158,0.5789473684210527
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard + semantic_sim,4,0.4846230158730158,0.5789473684210527
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_org,4,0.4846230158730158,0.5789473684210527
+random_forest,tfidf_cos + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.4846230158730158,0.5789473684210527
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.4846230158730158,0.5789473684210527
+random_forest,tfidf_cos + ner_jaccard,2,0.4846230158730158,0.5789473684210527
+gradient_boosting,ner_jaccard + ner_jaccard_person,2,0.47619047619047616,0.5789473684210527
+random_forest,dice_sim + ner_jaccard + ner_jaccard_org,3,0.47619047619047616,0.5789473684210527
+naive_bayes,dice_sim + ner_jaccard_person + semantic_sim,3,0.47619047619047616,0.5789473684210527
+gradient_boosting,ner_jaccard,1,0.47619047619047616,0.5789473684210527
+logistic_regression,dice_sim + ner_jaccard + semantic_sim,3,0.4758771929824561,0.5789473684210527
+logistic_regression,dice_sim + ner_jaccard,2,0.4758771929824561,0.5789473684210527
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org,4,0.4714285714285714,0.5789473684210527
+naive_bayes,jaccard_sim + ner_jaccard_org,2,0.4696969696969696,0.5263157894736842
+gradient_boosting,dice_sim + ner_jaccard_org,2,0.46944444444444444,0.5789473684210527
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,6,0.4642857142857143,0.5263157894736842
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,7,0.4642857142857143,0.5263157894736842
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard,4,0.4642857142857143,0.5263157894736842
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + semantic_sim,4,0.4642857142857143,0.5263157894736842
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard_person,3,0.4625,0.5789473684210527
+random_forest,ner_jaccard + ner_jaccard_person + ner_jaccard_org,3,0.4623015873015873,0.5789473684210527
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org,5,0.46011904761904765,0.5263157894736842
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,6,0.46011904761904765,0.5263157894736842
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim,3,0.4599567099567099,0.5263157894736842
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person,4,0.4599567099567099,0.5263157894736842
+random_forest,ner_jaccard,1,0.4598039215686275,0.5263157894736842
+gradient_boosting,ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.45904095904095904,0.47368421052631576
+naive_bayes,jaccard_sim + ner_jaccard + semantic_sim,3,0.458974358974359,0.5263157894736842
+gradient_boosting,ner_jaccard + ner_jaccard_org,2,0.45892857142857146,0.5789473684210527
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person,4,0.4583333333333333,0.5263157894736842
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard_org + semantic_sim,4,0.45555555555555555,0.5789473684210527
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + semantic_sim,4,0.45555555555555555,0.5789473684210527
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim,3,0.45555555555555555,0.5789473684210527
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard_person + semantic_sim,4,0.4548611111111111,0.5789473684210527
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard + semantic_sim,4,0.45476190476190476,0.5789473684210527
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard,3,0.45396825396825397,0.5263157894736842
+naive_bayes,dice_sim + ner_jaccard + ner_jaccard_person,3,0.453030303030303,0.5789473684210527
+gradient_boosting,tfidf_cos + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.45039682539682535,0.5263157894736842
+gradient_boosting,tfidf_cos + dice_sim,2,0.45021645021645024,0.5263157894736842
+naive_bayes,ner_jaccard + semantic_sim,2,0.4487394957983193,0.5789473684210527
+gradient_boosting,jaccard_sim + ner_jaccard + ner_jaccard_org,3,0.44805194805194803,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + semantic_sim,5,0.4444444444444444,0.5789473684210527
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard + semantic_sim,4,0.44375,0.5789473684210527
+svm,jaccard_sim + ner_jaccard,2,0.4431390977443609,0.5789473684210527
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person,4,0.44112554112554114,0.5789473684210527
+random_forest,tfidf_cos + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.4409722222222222,0.5789473684210527
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + semantic_sim,5,0.4392156862745098,0.5263157894736842
+svm,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.4392156862745098,0.5263157894736842
+svm,tfidf_cos + dice_sim + ner_jaccard + semantic_sim,4,0.4392156862745098,0.5263157894736842
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard,4,0.4392156862745098,0.5263157894736842
+svm,tfidf_cos + dice_sim + ner_jaccard,3,0.4392156862745098,0.5263157894736842
+naive_bayes,tfidf_cos + ner_jaccard,2,0.4392156862745098,0.5263157894736842
+svm,tfidf_cos + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.4392156862745098,0.5263157894736842
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.4365079365079365,0.5263157894736842
+naive_bayes,dice_sim + ner_jaccard + semantic_sim,3,0.4365079365079365,0.5263157894736842
+gradient_boosting,dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.4365079365079365,0.5263157894736842
+svm,dice_sim + ner_jaccard + ner_jaccard_org,3,0.43504901960784315,0.5263157894736842
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard_org,3,0.43472222222222223,0.5263157894736842
+random_forest,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person,4,0.43472222222222223,0.5263157894736842
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.43472222222222223,0.5263157894736842
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org,5,0.43472222222222223,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard,3,0.4342105263157895,0.5789473684210527
+logistic_regression,tfidf_cos + ner_jaccard + semantic_sim,3,0.4342105263157895,0.5789473684210527
+logistic_regression,tfidf_cos + ner_jaccard,2,0.4342105263157895,0.5789473684210527
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard + semantic_sim,4,0.4342105263157895,0.5789473684210527
+naive_bayes,ner_jaccard + ner_jaccard_org,2,0.4342105263157895,0.5789473684210527
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard,4,0.4342105263157895,0.5789473684210527
+svm,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_org,4,0.43286647992530347,0.5263157894736842
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_org,4,0.43174603174603177,0.5263157894736842
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.43174603174603177,0.5263157894736842
+gradient_boosting,dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.430952380952381,0.5263157894736842
+random_forest,ner_jaccard + ner_jaccard_person + semantic_sim,3,0.4303571428571429,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard_person + semantic_sim,4,0.43004385964912284,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard_person,3,0.43004385964912284,0.5263157894736842
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person,5,0.4297619047619048,0.5263157894736842
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + semantic_sim,5,0.4297619047619048,0.5263157894736842
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard,4,0.4297619047619048,0.5263157894736842
+random_forest,jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org,4,0.4297619047619048,0.5263157894736842
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_org,4,0.4297619047619048,0.5263157894736842
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org,4,0.4297619047619048,0.5263157894736842
+logistic_regression,dice_sim + ner_jaccard_org + semantic_sim,3,0.42976190476190473,0.5263157894736842
+naive_bayes,tfidf_cos + dice_sim + semantic_sim,3,0.42963286713286714,0.5263157894736842
+naive_bayes,jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.4283730158730159,0.5263157894736842
+random_forest,jaccard_sim + dice_sim + ner_jaccard_person + semantic_sim,4,0.42777777777777776,0.5263157894736842
+random_forest,ner_jaccard + ner_jaccard_person,2,0.42647058823529416,0.5263157894736842
+gradient_boosting,tfidf_cos,1,0.4253968253968254,0.5263157894736842
+naive_bayes,dice_sim,1,0.4253968253968254,0.5263157894736842
+random_forest,ner_jaccard + semantic_sim,2,0.42500000000000004,0.5263157894736842
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,6,0.42410714285714285,0.5263157894736842
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,6,0.42410714285714285,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.42314425770308123,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person,4,0.42314425770308123,0.5263157894736842
+random_forest,tfidf_cos + ner_jaccard_org,2,0.4231442577030812,0.5263157894736842
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard_person,3,0.4222402597402597,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person,4,0.42083333333333334,0.5263157894736842
+random_forest,dice_sim + ner_jaccard_org,2,0.42083333333333334,0.5263157894736842
+random_forest,jaccard_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.42063492063492064,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.4206349206349206,0.5263157894736842
+logistic_regression,tfidf_cos + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.4206349206349206,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.4206349206349206,0.5263157894736842
+logistic_regression,tfidf_cos + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.4206349206349206,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,6,0.4201680672268907,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,7,0.4201680672268907,0.5263157894736842
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard_org,3,0.4201680672268907,0.5263157894736842
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.4201680672268907,0.5263157894736842
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.4201680672268907,0.5263157894736842
+gradient_boosting,dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.4198412698412698,0.5263157894736842
+gradient_boosting,tfidf_cos + ner_jaccard + semantic_sim,3,0.4173076923076923,0.47368421052631576
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + semantic_sim,5,0.4166666666666667,0.5263157894736842
+gradient_boosting,tfidf_cos + ner_jaccard,2,0.4163059163059163,0.5263157894736842
+naive_bayes,tfidf_cos + jaccard_sim + semantic_sim,3,0.4159090909090909,0.5263157894736842
+naive_bayes,tfidf_cos + semantic_sim,2,0.4159090909090909,0.5263157894736842
+random_forest,dice_sim + ner_jaccard_person,2,0.41587301587301584,0.5263157894736842
+gradient_boosting,dice_sim + ner_jaccard_org + semantic_sim,3,0.41428571428571426,0.5263157894736842
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.41388888888888886,0.5263157894736842
+svm,jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.4133771929824561,0.5263157894736842
+svm,dice_sim + ner_jaccard_org,2,0.4112394957983193,0.5263157894736842
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.4111111111111111,0.5263157894736842
+random_forest,dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.4075757575757576,0.5263157894736842
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + semantic_sim,5,0.40694444444444444,0.5263157894736842
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + semantic_sim,5,0.40694444444444444,0.5263157894736842
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard_person + semantic_sim,4,0.40694444444444444,0.5263157894736842
+naive_bayes,dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.40694444444444444,0.5263157894736842
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard + semantic_sim,4,0.40694444444444444,0.5263157894736842
+random_forest,tfidf_cos + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.40694444444444444,0.5263157894736842
+random_forest,tfidf_cos + dice_sim + ner_jaccard_org + semantic_sim,4,0.40694444444444444,0.5263157894736842
+random_forest,tfidf_cos + dice_sim + ner_jaccard_person + semantic_sim,4,0.40694444444444444,0.5263157894736842
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.40694444444444444,0.5263157894736842
+random_forest,dice_sim + semantic_sim,2,0.40694444444444444,0.5263157894736842
+random_forest,tfidf_cos + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.40625,0.5263157894736842
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard + semantic_sim,4,0.40555555555555556,0.5263157894736842
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.40476190476190477,0.5263157894736842
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person,5,0.40476190476190477,0.5263157894736842
+logistic_regression,jaccard_sim + ner_jaccard + ner_jaccard_org,3,0.40476190476190477,0.5263157894736842
+random_forest,jaccard_sim + dice_sim + ner_jaccard_person,3,0.40476190476190477,0.5263157894736842
+random_forest,tfidf_cos + dice_sim + ner_jaccard_person + ner_jaccard_org,4,0.40476190476190477,0.5263157894736842
+random_forest,tfidf_cos + jaccard_sim + dice_sim + semantic_sim,4,0.40476190476190477,0.5263157894736842
+random_forest,dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.40476190476190477,0.5263157894736842
+naive_bayes,dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.40476190476190477,0.5263157894736842
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,6,0.40476190476190477,0.5263157894736842
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard_person + semantic_sim,4,0.4042950513538749,0.5263157894736842
+naive_bayes,tfidf_cos + jaccard_sim,2,0.4042950513538749,0.5263157894736842
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + semantic_sim,5,0.4037698412698413,0.47368421052631576
+gradient_boosting,tfidf_cos + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.4035714285714286,0.47368421052631576
+gradient_boosting,jaccard_sim + ner_jaccard,2,0.40341880341880343,0.47368421052631576
+gradient_boosting,jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.40341880341880343,0.47368421052631576
+gradient_boosting,jaccard_sim + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.40341880341880343,0.47368421052631576
+gradient_boosting,ner_jaccard_org + semantic_sim,2,0.4027777777777778,0.47368421052631576
+gradient_boosting,dice_sim + semantic_sim,2,0.4017857142857143,0.47368421052631576
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_org + semantic_sim,5,0.40128968253968256,0.5263157894736842
+random_forest,tfidf_cos + dice_sim + ner_jaccard_person,3,0.40128968253968256,0.5263157894736842
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard_person,3,0.40128968253968256,0.5263157894736842
+random_forest,tfidf_cos + dice_sim + semantic_sim,3,0.40128968253968256,0.5263157894736842
+logistic_regression,dice_sim + ner_jaccard_org,2,0.40119047619047615,0.5263157894736842
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard_org + semantic_sim,4,0.40119047619047615,0.5263157894736842
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard_org,3,0.40119047619047615,0.5263157894736842
+random_forest,jaccard_sim + dice_sim,2,0.4,0.5263157894736842
+naive_bayes,ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.3998015873015873,0.5263157894736842
+naive_bayes,dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.3993055555555556,0.5263157894736842
+random_forest,tfidf_cos + dice_sim + ner_jaccard_org,3,0.3993055555555556,0.5263157894736842
+naive_bayes,tfidf_cos + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.39642857142857146,0.5263157894736842
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_org + semantic_sim,5,0.39583333333333337,0.5263157894736842
+naive_bayes,tfidf_cos + dice_sim,2,0.39583333333333337,0.5263157894736842
+random_forest,jaccard_sim + dice_sim + ner_jaccard_org,3,0.39583333333333337,0.5263157894736842
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard_org,3,0.39583333333333337,0.5263157894736842
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.39583333333333337,0.5263157894736842
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard,3,0.3953216374269006,0.5263157894736842
+svm,dice_sim + ner_jaccard + ner_jaccard_person,3,0.39299242424242425,0.5263157894736842
+naive_bayes,tfidf_cos + ner_jaccard_person + semantic_sim,3,0.39299242424242425,0.5263157894736842
+random_forest,jaccard_sim + ner_jaccard_person + ner_jaccard_org,3,0.39285714285714285,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.3923611111111111,0.5263157894736842
+random_forest,tfidf_cos + dice_sim,2,0.3923611111111111,0.5263157894736842
+naive_bayes,tfidf_cos + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.3923611111111111,0.5263157894736842
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.3923611111111111,0.5263157894736842
+naive_bayes,jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.39087301587301587,0.5263157894736842
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person,4,0.39017857142857143,0.5263157894736842
+random_forest,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.39017857142857143,0.5263157894736842
+gradient_boosting,tfidf_cos + ner_jaccard_person,2,0.39017857142857143,0.5263157894736842
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.39017857142857143,0.5263157894736842
+svm,ner_jaccard + semantic_sim,2,0.3895676691729323,0.5263157894736842
+svm,jaccard_sim + ner_jaccard + semantic_sim,3,0.3895676691729323,0.5263157894736842
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.38928571428571423,0.47368421052631576
+logistic_regression,tfidf_cos + ner_jaccard + ner_jaccard_org,3,0.38928571428571423,0.5263157894736842
+logistic_regression,tfidf_cos + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.38928571428571423,0.5263157894736842
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard_person,3,0.38888888888888884,0.5263157894736842
+gradient_boosting,jaccard_sim + dice_sim + semantic_sim,3,0.3880952380952381,0.5263157894736842
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_org + semantic_sim,5,0.38789682539682535,0.47368421052631576
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard_org + semantic_sim,4,0.38789682539682535,0.47368421052631576
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.38789682539682535,0.47368421052631576
+gradient_boosting,tfidf_cos + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.38789682539682535,0.47368421052631576
+gradient_boosting,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,6,0.38789682539682535,0.47368421052631576
+random_forest,tfidf_cos + dice_sim + ner_jaccard + semantic_sim,4,0.3867424242424242,0.5263157894736842
+svm,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_org,4,0.386437908496732,0.5263157894736842
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard + semantic_sim,4,0.3857142857142857,0.47368421052631576
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.3857142857142857,0.47368421052631576
+gradient_boosting,tfidf_cos + ner_jaccard_person + ner_jaccard_org,3,0.38541666666666663,0.5263157894736842
+logistic_regression,dice_sim + semantic_sim,2,0.3833333333333333,0.5263157894736842
+naive_bayes,jaccard_sim + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.38257575757575757,0.47368421052631576
+svm,dice_sim + semantic_sim,2,0.38125,0.5263157894736842
+svm,tfidf_cos + jaccard_sim + dice_sim + semantic_sim,4,0.38125,0.5263157894736842
+svm,tfidf_cos + dice_sim + semantic_sim,3,0.38125,0.5263157894736842
+naive_bayes,tfidf_cos + ner_jaccard + semantic_sim,3,0.38108766233766234,0.5263157894736842
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.38095238095238093,0.47368421052631576
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.38095238095238093,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard_org + semantic_sim,4,0.3805916305916306,0.47368421052631576
+naive_bayes,tfidf_cos,1,0.3801247771836007,0.5263157894736842
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_org + semantic_sim,5,0.37949346405228757,0.5263157894736842
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,6,0.37949346405228757,0.5263157894736842
+svm,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.37949346405228757,0.5263157894736842
+svm,jaccard_sim + dice_sim + semantic_sim,3,0.37949346405228757,0.5263157894736842
+svm,tfidf_cos + dice_sim + ner_jaccard_org + semantic_sim,4,0.37949346405228757,0.5263157894736842
+random_forest,ner_jaccard + ner_jaccard_org + semantic_sim,3,0.37949346405228757,0.5263157894736842
+random_forest,ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.3773109243697479,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + semantic_sim,5,0.3773109243697479,0.5263157894736842
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard_person + semantic_sim,4,0.3773109243697479,0.5263157894736842
+svm,tfidf_cos + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.3773109243697479,0.5263157894736842
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard_person,3,0.3773109243697479,0.5263157894736842
+svm,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.3773109243697479,0.5263157894736842
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person,4,0.3773109243697479,0.5263157894736842
+naive_bayes,dice_sim + semantic_sim,2,0.3767857142857143,0.47368421052631576
+naive_bayes,dice_sim + ner_jaccard_org + semantic_sim,3,0.3767857142857143,0.47368421052631576
+gradient_boosting,tfidf_cos + dice_sim + ner_jaccard_person + semantic_sim,4,0.3767857142857143,0.47368421052631576
+naive_bayes,jaccard_sim + dice_sim + semantic_sim,3,0.3767857142857143,0.47368421052631576
+gradient_boosting,tfidf_cos + dice_sim + semantic_sim,3,0.3767857142857143,0.47368421052631576
+gradient_boosting,tfidf_cos + ner_jaccard + ner_jaccard_person,3,0.3753968253968254,0.47368421052631576
+random_forest,dice_sim,1,0.3696969696969697,0.5263157894736842
+gradient_boosting,ner_jaccard + ner_jaccard_person + ner_jaccard_org,3,0.3680555555555556,0.47368421052631576
+random_forest,ner_jaccard + ner_jaccard_org,2,0.3673796791443851,0.47368421052631576
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person,4,0.3672619047619048,0.47368421052631576
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org,5,0.3672619047619048,0.47368421052631576
+random_forest,jaccard_sim + dice_sim + ner_jaccard,3,0.3666666666666667,0.47368421052631576
+svm,ner_jaccard,1,0.3666666666666667,0.5263157894736842
+naive_bayes,ner_jaccard + ner_jaccard_org + semantic_sim,3,0.3653846153846154,0.47368421052631576
+naive_bayes,ner_jaccard,1,0.36507936507936506,0.47368421052631576
+gradient_boosting,jaccard_sim + ner_jaccard + semantic_sim,3,0.36507936507936506,0.42105263157894735
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.3630952380952381,0.42105263157894735
+random_forest,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.36160714285714285,0.47368421052631576
+naive_bayes,tfidf_cos + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.3611111111111111,0.47368421052631576
+random_forest,tfidf_cos + jaccard_sim + dice_sim,3,0.35833333333333334,0.47368421052631576
+gradient_boosting,jaccard_sim + ner_jaccard + ner_jaccard_person,3,0.3548076923076923,0.42105263157894735
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.3547619047619048,0.47368421052631576
+svm,jaccard_sim + dice_sim + ner_jaccard_org,3,0.3517156862745098,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_org,4,0.35138888888888886,0.47368421052631576
+random_forest,dice_sim + ner_jaccard_person + semantic_sim,3,0.35138888888888886,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org + semantic_sim,6,0.35138888888888886,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.3492063492063492,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org,5,0.3492063492063492,0.47368421052631576
+svm,tfidf_cos + ner_jaccard,2,0.3475378787878788,0.47368421052631576
+logistic_regression,ner_jaccard,1,0.34659090909090906,0.5263157894736842
+logistic_regression,jaccard_sim + ner_jaccard,2,0.34659090909090906,0.5263157894736842
+logistic_regression,jaccard_sim + ner_jaccard + semantic_sim,3,0.34659090909090906,0.5263157894736842
+logistic_regression,ner_jaccard + semantic_sim,2,0.34659090909090906,0.5263157894736842
+gradient_boosting,jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.34571678321678323,0.42105263157894735
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard_person,3,0.34477124183006536,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org,5,0.34444444444444444,0.47368421052631576
+random_forest,dice_sim + ner_jaccard_org + semantic_sim,3,0.34375,0.47368421052631576
+naive_bayes,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.34375,0.47368421052631576
+svm,tfidf_cos + jaccard_sim + dice_sim,3,0.34375,0.47368421052631576
+gradient_boosting,jaccard_sim + ner_jaccard_person + ner_jaccard_org,3,0.34090909090909094,0.42105263157894735
+gradient_boosting,jaccard_sim + ner_jaccard_org,2,0.34090909090909094,0.42105263157894735
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard_person + semantic_sim,4,0.3402777777777778,0.47368421052631576
+naive_bayes,tfidf_cos + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.3398109243697479,0.47368421052631576
+svm,jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.33976608187134505,0.47368421052631576
+svm,ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.33976608187134505,0.47368421052631576
+svm,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.3392156862745098,0.47368421052631576
+svm,dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.3392156862745098,0.47368421052631576
+svm,tfidf_cos,1,0.3392156862745098,0.47368421052631576
+svm,dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.3392156862745098,0.47368421052631576
+naive_bayes,tfidf_cos + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.3392156862745098,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.3392156862745098,0.47368421052631576
+svm,tfidf_cos + jaccard_sim,2,0.3392156862745098,0.47368421052631576
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.33897243107769426,0.47368421052631576
+logistic_regression,dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.33897243107769426,0.47368421052631576
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.33897243107769426,0.47368421052631576
+logistic_regression,dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.33897243107769426,0.47368421052631576
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard_person,3,0.33878968253968256,0.42105263157894735
+svm,ner_jaccard_person + ner_jaccard_org + semantic_sim,3,0.3380952380952381,0.47368421052631576
+svm,jaccard_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.3380952380952381,0.47368421052631576
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard_person + ner_jaccard_org,4,0.3373015873015873,0.47368421052631576
+logistic_regression,tfidf_cos + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.3373015873015873,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard_person + ner_jaccard_org,4,0.3373015873015873,0.47368421052631576
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.3373015873015873,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.3373015873015873,0.47368421052631576
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.3373015873015873,0.47368421052631576
+logistic_regression,tfidf_cos + ner_jaccard_person + ner_jaccard_org,3,0.3373015873015873,0.47368421052631576
+svm,tfidf_cos + dice_sim,2,0.3368055555555556,0.47368421052631576
+svm,tfidf_cos + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.33467023172905525,0.47368421052631576
+svm,tfidf_cos + ner_jaccard + ner_jaccard_org,3,0.33467023172905525,0.47368421052631576
+svm,ner_jaccard + ner_jaccard_org + semantic_sim,3,0.33421052631578946,0.5263157894736842
+svm,jaccard_sim + ner_jaccard + ner_jaccard_org,3,0.33421052631578946,0.5263157894736842
+svm,jaccard_sim + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.33421052631578946,0.5263157894736842
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard_person + ner_jaccard_org,4,0.33333333333333337,0.47368421052631576
+random_forest,tfidf_cos + ner_jaccard_person + ner_jaccard_org,3,0.33333333333333337,0.47368421052631576
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard_org,3,0.33333333333333337,0.47368421052631576
+svm,tfidf_cos + jaccard_sim + ner_jaccard_org,3,0.33333333333333337,0.47368421052631576
+naive_bayes,ner_jaccard + ner_jaccard_person + semantic_sim,3,0.33333333333333337,0.47368421052631576
+naive_bayes,jaccard_sim + ner_jaccard_org + semantic_sim,3,0.3333333333333333,0.42105263157894735
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person,5,0.33286647992530344,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,6,0.33286647992530344,0.47368421052631576
+svm,jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.33286647992530344,0.47368421052631576
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.33286647992530344,0.47368421052631576
+logistic_regression,dice_sim + ner_jaccard + ner_jaccard_person,3,0.33286647992530344,0.47368421052631576
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person,4,0.33286647992530344,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard_person + ner_jaccard_org,4,0.33286647992530344,0.47368421052631576
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.33286647992530344,0.47368421052631576
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person,4,0.33286647992530344,0.47368421052631576
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_org,4,0.33286647992530344,0.47368421052631576
+naive_bayes,dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.33286647992530344,0.47368421052631576
+logistic_regression,dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.33286647992530344,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.33286647992530344,0.47368421052631576
+svm,dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.33286647992530344,0.47368421052631576
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.33286647992530344,0.47368421052631576
+svm,dice_sim + ner_jaccard_person + ner_jaccard_org,3,0.33088235294117646,0.47368421052631576
+svm,dice_sim + ner_jaccard_org + semantic_sim,3,0.33088235294117646,0.5263157894736842
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_org,4,0.33088235294117646,0.47368421052631576
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.33088235294117646,0.47368421052631576
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.33088235294117646,0.47368421052631576
+svm,jaccard_sim + dice_sim + ner_jaccard_org + semantic_sim,4,0.3308080808080808,0.5263157894736842
+logistic_regression,ner_jaccard + ner_jaccard_org + semantic_sim,3,0.33051948051948055,0.47368421052631576
+logistic_regression,jaccard_sim + ner_jaccard + ner_jaccard_org + semantic_sim,4,0.33051948051948055,0.47368421052631576
+logistic_regression,ner_jaccard + ner_jaccard_org,2,0.33051948051948055,0.47368421052631576
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard_person + ner_jaccard_org,4,0.33035714285714285,0.42105263157894735
+svm,ner_jaccard + ner_jaccard_person,2,0.33004385964912275,0.47368421052631576
+svm,ner_jaccard + ner_jaccard_person + ner_jaccard_org,3,0.33004385964912275,0.47368421052631576
+naive_bayes,tfidf_cos + dice_sim + ner_jaccard_person + ner_jaccard_org,4,0.3298611111111111,0.47368421052631576
+random_forest,tfidf_cos + jaccard_sim + ner_jaccard_org + semantic_sim,4,0.32837301587301587,0.47368421052631576
+random_forest,tfidf_cos + ner_jaccard_org + semantic_sim,3,0.32837301587301587,0.47368421052631576
+random_forest,tfidf_cos + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.32837301587301587,0.47368421052631576
+random_forest,tfidf_cos + ner_jaccard_person,2,0.32837301587301587,0.47368421052631576
+svm,tfidf_cos + semantic_sim,2,0.3277777777777778,0.47368421052631576
+logistic_regression,tfidf_cos + ner_jaccard + ner_jaccard_person,3,0.3273109243697479,0.47368421052631576
+logistic_regression,tfidf_cos + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.3273109243697479,0.47368421052631576
+naive_bayes,ner_jaccard_person + ner_jaccard_org + semantic_sim,3,0.3270676691729323,0.47368421052631576
+gradient_boosting,dice_sim + ner_jaccard_person + semantic_sim,3,0.32539682539682535,0.42105263157894735
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.32539682539682535,0.42105263157894735
+logistic_regression,dice_sim,1,0.32499999999999996,0.5263157894736842
+logistic_regression,jaccard_sim + dice_sim,2,0.32499999999999996,0.5263157894736842
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_org,5,0.323937908496732,0.47368421052631576
+logistic_regression,tfidf_cos + ner_jaccard_person,2,0.32309941520467833,0.47368421052631576
+logistic_regression,tfidf_cos + ner_jaccard_person + semantic_sim,3,0.32309941520467833,0.47368421052631576
+random_forest,tfidf_cos + jaccard_sim,2,0.32142857142857145,0.42105263157894735
+logistic_regression,dice_sim + ner_jaccard_person,2,0.3214285714285714,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard_org,3,0.3214285714285714,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + ner_jaccard_org + semantic_sim,4,0.3214285714285714,0.47368421052631576
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard_person,3,0.3214285714285714,0.47368421052631576
+naive_bayes,ner_jaccard_org,1,0.3214285714285714,0.42105263157894735
+naive_bayes,ner_jaccard + ner_jaccard_person,2,0.3214285714285714,0.47368421052631576
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard_person + semantic_sim,4,0.3214285714285714,0.47368421052631576
+naive_bayes,tfidf_cos + ner_jaccard_person + ner_jaccard_org,3,0.3214285714285714,0.47368421052631576
+logistic_regression,dice_sim + ner_jaccard_person + semantic_sim,3,0.3214285714285714,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_org,4,0.3208333333333333,0.47368421052631576
+random_forest,jaccard_sim + ner_jaccard_org,2,0.3208333333333333,0.42105263157894735
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_org + semantic_sim,5,0.3208333333333333,0.47368421052631576
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard_org + semantic_sim,4,0.3208333333333333,0.47368421052631576
+logistic_regression,tfidf_cos + dice_sim + ner_jaccard_org,3,0.3208333333333333,0.47368421052631576
+random_forest,tfidf_cos,1,0.3194444444444444,0.47368421052631576
+naive_bayes,jaccard_sim + ner_jaccard_person,2,0.3181390977443609,0.47368421052631576
+naive_bayes,jaccard_sim + ner_jaccard_person + ner_jaccard_org,3,0.3181390977443609,0.47368421052631576
+naive_bayes,ner_jaccard_person + ner_jaccard_org,2,0.31785714285714284,0.47368421052631576
+logistic_regression,tfidf_cos + ner_jaccard_org + semantic_sim,3,0.31785714285714284,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard_org + semantic_sim,4,0.31785714285714284,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + ner_jaccard_org,3,0.31785714285714284,0.47368421052631576
+logistic_regression,tfidf_cos + ner_jaccard_org,2,0.31785714285714284,0.47368421052631576
+random_forest,dice_sim + ner_jaccard_person + ner_jaccard_org,3,0.31666666666666665,0.42105263157894735
+gradient_boosting,tfidf_cos + jaccard_sim,2,0.31634615384615383,0.3684210526315789
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_org + semantic_sim,5,0.3125,0.42105263157894735
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.3125,0.42105263157894735
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard + semantic_sim,4,0.3125,0.42105263157894735
+gradient_boosting,jaccard_sim + semantic_sim,2,0.3118131868131868,0.3684210526315789
+naive_bayes,tfidf_cos + ner_jaccard_org,2,0.3111111111111111,0.42105263157894735
+random_forest,tfidf_cos + jaccard_sim + semantic_sim,3,0.31039915966386555,0.42105263157894735
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard_person + semantic_sim,4,0.31039915966386555,0.42105263157894735
+gradient_boosting,tfidf_cos + ner_jaccard_org + semantic_sim,3,0.31039915966386555,0.42105263157894735
+gradient_boosting,tfidf_cos + ner_jaccard_person + semantic_sim,3,0.31039915966386555,0.42105263157894735
+svm,ner_jaccard + ner_jaccard_org,2,0.3092105263157895,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.30892857142857144,0.42105263157894735
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard_org + semantic_sim,4,0.30345471521942113,0.42105263157894735
+gradient_boosting,tfidf_cos + jaccard_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.30345471521942113,0.42105263157894735
+gradient_boosting,tfidf_cos + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.30345471521942113,0.42105263157894735
+random_forest,jaccard_sim + ner_jaccard_person,2,0.30147058823529416,0.42105263157894735
+logistic_regression,tfidf_cos + dice_sim + semantic_sim,3,0.29444444444444445,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim + semantic_sim,4,0.29444444444444445,0.47368421052631576
+gradient_boosting,tfidf_cos + jaccard_sim + semantic_sim,3,0.2936507936507936,0.3684210526315789
+random_forest,ner_jaccard_org + semantic_sim,2,0.29166666666666663,0.42105263157894735
+svm,jaccard_sim,1,0.29166666666666663,0.47368421052631576
+gradient_boosting,tfidf_cos + semantic_sim,2,0.2901785714285714,0.3684210526315789
+naive_bayes,jaccard_sim + semantic_sim,2,0.28888888888888886,0.3157894736842105
+naive_bayes,ner_jaccard_org + semantic_sim,2,0.28733766233766234,0.3684210526315789
+svm,ner_jaccard_org + semantic_sim,2,0.2861111111111111,0.47368421052631576
+logistic_regression,jaccard_sim + dice_sim + semantic_sim,3,0.2861111111111111,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + dice_sim,3,0.28421052631578947,0.47368421052631576
+logistic_regression,tfidf_cos + dice_sim,2,0.28421052631578947,0.47368421052631576
+naive_bayes,tfidf_cos + ner_jaccard_org + semantic_sim,3,0.2795815295815296,0.3684210526315789
+naive_bayes,jaccard_sim + ner_jaccard_person + semantic_sim,3,0.2777777777777778,0.42105263157894735
+gradient_boosting,jaccard_sim + dice_sim + ner_jaccard_person + semantic_sim,4,0.2767857142857143,0.3684210526315789
+logistic_regression,tfidf_cos,1,0.275,0.47368421052631576
+logistic_regression,tfidf_cos + semantic_sim,2,0.275,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim,2,0.275,0.47368421052631576
+logistic_regression,tfidf_cos + jaccard_sim + semantic_sim,3,0.275,0.47368421052631576
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,7,0.2743055555555556,0.42105263157894735
+naive_bayes,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,6,0.2743055555555556,0.42105263157894735
+naive_bayes,jaccard_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.2743055555555556,0.3684210526315789
+naive_bayes,jaccard_sim,1,0.2720588235294118,0.42105263157894735
+gradient_boosting,semantic_sim,1,0.27142857142857146,0.3157894736842105
+random_forest,jaccard_sim,1,0.2708333333333333,0.42105263157894735
+gradient_boosting,jaccard_sim + ner_jaccard_person + semantic_sim,3,0.26964285714285713,0.3157894736842105
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org,4,0.2675438596491228,0.42105263157894735
+logistic_regression,jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.2675438596491228,0.42105263157894735
+random_forest,jaccard_sim + semantic_sim,2,0.26666666666666666,0.42105263157894735
+svm,jaccard_sim + semantic_sim,2,0.26244343891402716,0.42105263157894735
+svm,tfidf_cos + dice_sim + ner_jaccard_org,3,0.261437908496732,0.42105263157894735
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.261437908496732,0.42105263157894735
+gradient_boosting,ner_jaccard_person + ner_jaccard_org,2,0.25980392156862747,0.42105263157894735
+gradient_boosting,ner_jaccard_person + ner_jaccard_org + semantic_sim,3,0.2589285714285714,0.3157894736842105
+random_forest,tfidf_cos + ner_jaccard_person + semantic_sim,3,0.2569444444444444,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.25588235294117645,0.42105263157894735
+svm,jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org,4,0.25588235294117645,0.42105263157894735
+naive_bayes,tfidf_cos + ner_jaccard_person,2,0.25588235294117645,0.42105263157894735
+naive_bayes,tfidf_cos + ner_jaccard + ner_jaccard_person,3,0.25588235294117645,0.42105263157894735
+naive_bayes,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person,4,0.25588235294117645,0.42105263157894735
+logistic_regression,dice_sim + ner_jaccard_person + ner_jaccard_org,3,0.2556390977443609,0.42105263157894735
+logistic_regression,dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.2556390977443609,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.25133689839572193,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + ner_jaccard_person + ner_jaccard_org,4,0.25133689839572193,0.42105263157894735
+svm,tfidf_cos + ner_jaccard_org,2,0.25,0.42105263157894735
+random_forest,ner_jaccard_org,1,0.25,0.42105263157894735
+gradient_boosting,ner_jaccard_org,1,0.25,0.42105263157894735
+random_forest,tfidf_cos + semantic_sim,2,0.25,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + dice_sim + ner_jaccard_person + ner_jaccard_org,4,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + dice_sim + ner_jaccard_person,3,0.24754901960784312,0.42105263157894735
+svm,dice_sim + ner_jaccard_person + semantic_sim,3,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + ner_jaccard + semantic_sim,3,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + ner_jaccard + ner_jaccard_person,3,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person,4,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + dice_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + ner_jaccard_person + semantic_sim,3,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + ner_jaccard_person + ner_jaccard_org,3,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person,4,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + ner_jaccard_person,2,0.24754901960784312,0.42105263157894735
+svm,jaccard_sim + dice_sim + ner_jaccard_person + semantic_sim,4,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + semantic_sim,5,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard_person + ner_jaccard_org,5,0.24754901960784312,0.42105263157894735
+svm,dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.24754901960784312,0.42105263157894735
+svm,dice_sim + ner_jaccard_person,2,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person,5,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,6,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,6,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,6,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.24754901960784312,0.42105263157894735
+svm,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person,4,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + dice_sim + ner_jaccard_person + semantic_sim,4,0.24754901960784312,0.42105263157894735
+svm,jaccard_sim + dice_sim + ner_jaccard_person,3,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,7,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + ner_jaccard_person,3,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + ner_jaccard + semantic_sim,4,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + ner_jaccard,3,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + dice_sim + ner_jaccard + ner_jaccard_person,4,0.24754901960784312,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + ner_jaccard_person + semantic_sim,4,0.24754901960784312,0.42105263157894735
+svm,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + semantic_sim,5,0.24754901960784312,0.42105263157894735
+svm,jaccard_sim + dice_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,5,0.24754901960784312,0.42105263157894735
+logistic_regression,ner_jaccard + ner_jaccard_person + semantic_sim,3,0.2464285714285714,0.42105263157894735
+svm,tfidf_cos + ner_jaccard_org + semantic_sim,3,0.24444444444444446,0.42105263157894735
+naive_bayes,jaccard_sim + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.24444444444444446,0.42105263157894735
+svm,tfidf_cos + jaccard_sim + semantic_sim,3,0.2398989898989899,0.42105263157894735
+random_forest,semantic_sim,1,0.2388888888888889,0.3684210526315789
+logistic_regression,ner_jaccard_person + ner_jaccard_org + semantic_sim,3,0.23809523809523808,0.42105263157894735
+logistic_regression,jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,5,0.23809523809523808,0.42105263157894735
+logistic_regression,jaccard_sim + ner_jaccard_person + ner_jaccard_org,3,0.23809523809523808,0.42105263157894735
+logistic_regression,ner_jaccard + ner_jaccard_person,2,0.23809523809523808,0.42105263157894735
+logistic_regression,ner_jaccard_person + ner_jaccard_org,2,0.23809523809523808,0.42105263157894735
+logistic_regression,jaccard_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.23809523809523808,0.42105263157894735
+logistic_regression,ner_jaccard + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.23809523809523808,0.42105263157894735
+logistic_regression,jaccard_sim + ner_jaccard + ner_jaccard_person + ner_jaccard_org,4,0.23809523809523808,0.42105263157894735
+logistic_regression,ner_jaccard + ner_jaccard_person + ner_jaccard_org,3,0.23809523809523808,0.42105263157894735
+gradient_boosting,jaccard_sim + ner_jaccard_person + ner_jaccard_org + semantic_sim,4,0.23796791443850268,0.3684210526315789
+naive_bayes,ner_jaccard_person + semantic_sim,2,0.23550724637681159,0.42105263157894735
+svm,jaccard_sim + ner_jaccard + ner_jaccard_person,3,0.23421052631578948,0.42105263157894735
+svm,ner_jaccard + ner_jaccard_person + semantic_sim,3,0.23421052631578948,0.42105263157894735
+svm,jaccard_sim + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.23421052631578948,0.42105263157894735
+random_forest,ner_jaccard_person + ner_jaccard_org + semantic_sim,3,0.23202614379084968,0.3684210526315789
+svm,jaccard_sim + ner_jaccard_org,2,0.22916666666666666,0.42105263157894735
+random_forest,jaccard_sim + ner_jaccard_person + semantic_sim,3,0.22916666666666666,0.3684210526315789
+svm,jaccard_sim + ner_jaccard_org + semantic_sim,3,0.22916666666666666,0.42105263157894735
+svm,jaccard_sim + ner_jaccard_person + ner_jaccard_org,3,0.22916666666666666,0.42105263157894735
+gradient_boosting,jaccard_sim,1,0.22619047619047616,0.3157894736842105
+gradient_boosting,jaccard_sim + ner_jaccard_person,2,0.22619047619047616,0.3157894736842105
+gradient_boosting,jaccard_sim + ner_jaccard_org + semantic_sim,3,0.22424242424242424,0.3157894736842105
+logistic_regression,ner_jaccard_person,1,0.2236024844720497,0.42105263157894735
+logistic_regression,jaccard_sim + ner_jaccard_org + semantic_sim,3,0.2236024844720497,0.42105263157894735
+logistic_regression,ner_jaccard_org + semantic_sim,2,0.2236024844720497,0.42105263157894735
+logistic_regression,ner_jaccard_person + semantic_sim,2,0.2236024844720497,0.42105263157894735
+logistic_regression,ner_jaccard_org,1,0.2236024844720497,0.42105263157894735
+logistic_regression,jaccard_sim + ner_jaccard_org,2,0.2236024844720497,0.42105263157894735
+logistic_regression,jaccard_sim + ner_jaccard_person,2,0.2236024844720497,0.42105263157894735
+logistic_regression,jaccard_sim + ner_jaccard_person + semantic_sim,3,0.2236024844720497,0.42105263157894735
+naive_bayes,ner_jaccard_person,1,0.2236024844720497,0.42105263157894735
+gradient_boosting,ner_jaccard_person + semantic_sim,2,0.21805555555555556,0.2631578947368421
+svm,semantic_sim,1,0.1778846153846154,0.2631578947368421
+svm,ner_jaccard_person + ner_jaccard_org,2,0.175,0.3684210526315789
+random_forest,ner_jaccard_person + ner_jaccard_org,2,0.175,0.3684210526315789
+naive_bayes,semantic_sim,1,0.1715686274509804,0.2631578947368421
+logistic_regression,jaccard_sim + ner_jaccard + ner_jaccard_person,3,0.16666666666666666,0.3684210526315789
+logistic_regression,jaccard_sim + ner_jaccard + ner_jaccard_person + semantic_sim,4,0.16666666666666666,0.3684210526315789
+random_forest,ner_jaccard_person + semantic_sim,2,0.1590909090909091,0.3684210526315789
+svm,ner_jaccard_person + semantic_sim,2,0.15217391304347827,0.3684210526315789
+svm,jaccard_sim + ner_jaccard_person,2,0.15217391304347827,0.3684210526315789
+svm,ner_jaccard_person,1,0.15217391304347827,0.3684210526315789
+svm,ner_jaccard_org,1,0.15217391304347827,0.3684210526315789
+svm,jaccard_sim + ner_jaccard_person + semantic_sim,3,0.15217391304347827,0.3684210526315789
+gradient_boosting,ner_jaccard_person,1,0.15217391304347827,0.3684210526315789
+random_forest,ner_jaccard_person,1,0.14,0.3684210526315789
+logistic_regression,jaccard_sim + semantic_sim,2,0.1346153846153846,0.3684210526315789
+logistic_regression,semantic_sim,1,0.1346153846153846,0.3684210526315789
+logistic_regression,jaccard_sim,1,0.1346153846153846,0.3684210526315789
