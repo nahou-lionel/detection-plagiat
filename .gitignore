@@ -4,10 +4,6 @@ env
 __pycache__
 .pytest_cache
 
-# Corpus (fichiers non redistribuables)
-data-plagiarism/*
-!data-plagiarism/.gitignore
-!data-plagiarism/README.md
 
 data/raw
 
